@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: -208}
+  m_AnchoredPosition: {x: -244, y: -132}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73142308
@@ -1655,6 +1655,7 @@ MonoBehaviour:
   num1: {fileID: 748992853}
   num2: {fileID: 790121943}
   resultadoText: {fileID: 73142308}
+  operacion: {fileID: 1249273401}
 --- !u!4 &1061953120
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,7 +2045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: -278}
+  m_AnchoredPosition: {x: -244, y: -205}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249273401

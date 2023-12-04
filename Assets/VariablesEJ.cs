@@ -12,27 +12,32 @@ public class VariablesEJ : MonoBehaviour
     public TMP_InputField num1;
     public TMP_InputField num2;
     public TextMeshProUGUI resultadoText;
+    public TextMeshProUGUI operacion;
 
     public void plus()
     {
         resultado = (a + b);
         mensaje();
+        operacion.text = "suma";
     }
     public void mensaje()
     {
         Debug.Log(resultado);
         resultadoText.text = resultado.ToString();
+
         //resultadoText.text = "HOLA";
     }
     public void resta()
     {
         resultado = (a - b);
         mensaje();
+        operacion.text = "resta";
     }
     public void multiplicacion()
     {
         resultado = (a * b);
         mensaje();
+        operacion.text = "multiplicacion";
     }
 
     public void convertInput()
