@@ -17,4 +17,16 @@ public class VariablesEJ : MonoBehaviour
     {
         Debug.Log(resultado);
     }
+    public void resta()
+    {
+        resultado = (a - b);
+        mensaje();
+    }
+    public void multiplicacion()
+    {
+        resultado = (a * b);
+        mensaje();
+    }
+
 }
+
