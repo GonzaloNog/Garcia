@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class VariablesEJ : MonoBehaviour
 {
-    private string mensaje = "hola";
-    public string mensaje2 = "hola2";
-    void Start()
-    {
-        Debug.Log(mensaje);
-        Debug.Log(mensaje2);
-    }
+    private int resultado = 0;
+    public int a = 0;
+    public int b = 0;
 
-    // Update is called once per frame
-    void Update()
+    public void plus()
     {
-        
+        resultado = (a + b);
+        mensaje();
+    }
+    public void mensaje()
+    {
+        Debug.Log(resultado);
     }
 }
