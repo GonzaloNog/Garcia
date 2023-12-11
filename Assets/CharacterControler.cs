@@ -19,7 +19,19 @@ public class CharacterControler : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("Mantiene"); 
+            Debug.Log("Mantiene");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("apreto");
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            Debug.Log("Solto");
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("Mantiene");
         }
     }
 }
