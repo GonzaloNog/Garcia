@@ -18,10 +18,12 @@ public class CharacterControler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Derecha");
+            this.gameObject.transform.position = points[2].transform.position;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Izquierda");
+            this.gameObject.transform.position = points[0].transform.position;
         }
     }
 }
