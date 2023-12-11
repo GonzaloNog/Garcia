@@ -39,7 +39,12 @@ public class VariablesEJ : MonoBehaviour
         mensaje();
         operacion.text = "multiplicacion";
     }
-
+    public void division()
+    {
+        resultado = (a / b);
+        mensaje();
+        operacion.text = "division";
+    }
     public void convertInput()
     {
         a = int.Parse(num1.text);
