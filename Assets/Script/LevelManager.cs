@@ -14,11 +14,6 @@ public class LevelManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-        scorePlus(10);
-    }
-    void Start()
-    {
-        Debug.Log("score: " + score);
     }
     public void scorePlus(int _plus)
     {
