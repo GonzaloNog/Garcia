@@ -5,33 +5,23 @@ using UnityEngine;
 public class CharacterControler : MonoBehaviour
 {
     public float speed;
+    public GameObject[] points;
+    //public int indexStart;
+    private int indexFinish;
 
-    // Update is called once per frame
+    public void Start()
+    {
+        this.gameObject.transform.position = points[1].transform.position;
+    }   // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Debug.Log("apreto");
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            Debug.Log("Solto");
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Debug.Log("Mantiene");
+            Debug.Log("Derecha");
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("apreto");
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            Debug.Log("Solto");
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("Mantiene");
+            Debug.Log("Izquierda");
         }
     }
 }
