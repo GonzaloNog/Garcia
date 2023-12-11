@@ -6,24 +6,46 @@ public class CharacterControler : MonoBehaviour
 {
     public float speed;
     public GameObject[] points;
-    //public int indexStart;
+    public int indexStart;
     private int indexFinish;
+    private bool isMove = false;
 
     public void Start()
     {
-        this.gameObject.transform.position = points[1].transform.position;
+        this.gameObject.transform.position = points[indexStart].transform.position;
+        indexFinish = indexStart;
     }   // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))//detecta el teclado para movernos en una direccion
         {
             Debug.Log("Derecha");
-            this.gameObject.transform.position = points[2].transform.position;
+            if(indexFinish < 2)
+            {
+                isMove = true;
+                indexFinish++;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))//detecta el teclado para movernos en una direccion
         {
             Debug.Log("Izquierda");
-            this.gameObject.transform.position = points[0].transform.position;
+            if (indexFinish > 0)
+            {
+                isMove = true;
+                indexFinish--;
+            }
+        }
+        if (isMove)//si se ingresa una tecla isMove se pone en true, nos vamos a mover hasta el siguiente punto
+        {
+            Vector3 newPosition = Vector3.MoveTowards(transform.position, points[indexFinish].transform.position,speed * Time.deltaTime);
+
+            transform.position = newPosition;
+
+            if(this.gameObject.transform.position == points[indexFinish].transform.position)//cuando el punto se alcansa deja de moverse y queda esperando de nuevo la entrada de teclado
+            {
+                isMove = false;
+                indexStart = indexFinish;
+            }
         }
     }
 }
