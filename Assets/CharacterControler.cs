@@ -17,35 +17,49 @@ public class CharacterControler : MonoBehaviour
     }   // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))//detecta el teclado para movernos en una direccion
+        if (!LevelManager.instance.getGameOver())
         {
-            Debug.Log("Derecha");
-            if(indexFinish < 2)
+            if (Input.GetKeyDown(KeyCode.D))//detecta el teclado para movernos en una direccion
             {
-                isMove = true;
-                indexFinish++;
+                Debug.Log("Derecha");
+                if (indexFinish < 2)
+                {
+                    isMove = true;
+                    indexFinish++;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.A))//detecta el teclado para movernos en una direccion
+            {
+                Debug.Log("Izquierda");
+                if (indexFinish > 0)
+                {
+                    isMove = true;
+                    indexFinish--;
+                }
+            }
+            if (isMove)//si se ingresa una tecla isMove se pone en true, nos vamos a mover hasta el siguiente punto
+            {
+                Vector3 newPosition = Vector3.MoveTowards(transform.position, points[indexFinish].transform.position, speed * Time.deltaTime);
+
+                transform.position = newPosition;
+
+                if (this.gameObject.transform.position == points[indexFinish].transform.position)//cuando el punto se alcansa deja de moverse y queda esperando de nuevo la entrada de teclado
+                {
+                    isMove = false;
+                    indexStart = indexFinish;
+                }
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))//detecta el teclado para movernos en una direccion
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "respuesta")
         {
-            Debug.Log("Izquierda");
-            if (indexFinish > 0)
-            {
-                isMove = true;
-                indexFinish--;
-            }
-        }
-        if (isMove)//si se ingresa una tecla isMove se pone en true, nos vamos a mover hasta el siguiente punto
-        {
-            Vector3 newPosition = Vector3.MoveTowards(transform.position, points[indexFinish].transform.position,speed * Time.deltaTime);
-
-            transform.position = newPosition;
-
-            if(this.gameObject.transform.position == points[indexFinish].transform.position)//cuando el punto se alcansa deja de moverse y queda esperando de nuevo la entrada de teclado
-            {
-                isMove = false;
-                indexStart = indexFinish;
-            }
+            if (LevelManager.instance.getResultado() == collision.GetComponent<Respuesta>().resultadoNum)
+                LevelManager.instance.scorePlus(10);
+            else
+                LevelManager.instance.lifesChange(-1);
+            LevelManager.instance.newEcuacion();
         }
     }
 }
